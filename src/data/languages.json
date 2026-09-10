@@ -341,6 +341,9 @@
         "/\\.npmrc$|\\.npmignore$|^package\\.json$/": {
             "image": "npm"
         },
+        "/^(noxfile|nox\\.build|nox\\.state|nox\\.config)$/": {
+            "image": "nox"
+        },
         "/\\.prettier((rc)|(\\.(toml|yml|yaml|json|js))?$){2}$|\\prettier.config.js$|\\.prettierignore$/": {
             "image": "prettier"
         },

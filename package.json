@@ -33,7 +33,11 @@
         "theme": "dark"
     },
     "activationEvents": [
-        "onStartupFinished"
+        "*",
+        "workspaceContains:noxfile",
+        "workspaceContains:nox.build",
+        "workspaceContains:nox.state",
+        "workspaceContains:nox.config"
     ],
     "main": "dist/extension.js",
     "private": true,
@@ -121,7 +125,7 @@
                 "properties": {
                     "vscord.enable": {
                         "type": "boolean",
-                        "default": "true",
+                        "default": true,
                         "order": 1,
                         "description": "Enable the extension"
                     },

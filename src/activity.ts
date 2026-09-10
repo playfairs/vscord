@@ -281,6 +281,7 @@ export const activity = async (
     presence.smallImageKey = smallImageKey;
     presence.smallImageText = smallImageText;
     presence.buttons = buttons;
+    presence.name = config.get(CONFIG_KEYS.App.Name) ?? "Visual Studio Code";
 
     // Clean up
     if (!presence.details || presence.details.trim() === "") delete presence.details;

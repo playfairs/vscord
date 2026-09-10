@@ -1,4 +1,5 @@
-assets/icons/
+assets/icons/*
+!assets/icons/nox.png
 node_modules/
 .github/
 .vscode/

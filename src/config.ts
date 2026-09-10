@@ -28,7 +28,7 @@ interface Buttons {
 }
 
 export interface ExtensionConfigurationType {
-    enable: string;
+    enable: boolean;
     "app.id": string;
     "app.name": "Code" | "Visual Studio Code" | "VSCodium" | "Antigravity" | "Cursor" | "Custom";
     "app.privacyMode.enable": boolean;

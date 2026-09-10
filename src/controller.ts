@@ -199,7 +199,19 @@ export class RPCController {
                 filteredButton.map((button) => JSON.stringify(button, null, 2)).join("\n")
             );
 
-        return this.client.user?.setActivity(this.state, process.pid);
+        try {
+            return await this.client.user?.setActivity(this.state, process.pid);
+        } catch (error) {
+            logError("Failed to update Discord Rich Presence:", error);
+
+            const fallbackState = { ...this.state };
+            delete fallbackState.largeImageKey;
+            delete fallbackState.largeImageText;
+            delete fallbackState.smallImageKey;
+            delete fallbackState.smallImageText;
+
+            return await this.client.user?.setActivity(fallbackState, process.pid);
+        }
     }
 
     async disable() {

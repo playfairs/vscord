@@ -7,10 +7,7 @@ import { getConfig } from "./config";
 import { logInfo } from "./logger";
 import { dataClass } from "./data";
 
-const controller = new RPCController(
-    getApplicationId(getConfig()).clientId,
-    getConfig().get(CONFIG_KEYS.Behaviour.Debug)
-);
+let controller!: RPCController;
 
 export const registerListeners = (ctx: ExtensionContext) => {
     const onConfigurationChanged = workspace.onDidChangeConfiguration(async () => {
@@ -182,6 +179,10 @@ export const registerCommands = (ctx: ExtensionContext) => {
 
 export async function activate(ctx: ExtensionContext) {
     logInfo("Discord Rich Presence for VS Code activated.");
+    controller = new RPCController(
+        getApplicationId(getConfig()).clientId,
+        getConfig().get(CONFIG_KEYS.Behaviour.Debug)
+    );
     editor.setStatusBarItem(StatusBarMode.Pending);
     registerCommands(ctx);
     registerListeners(ctx);
