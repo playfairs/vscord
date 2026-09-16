@@ -395,6 +395,9 @@
         "/^nodemon\\.json$/": {
             "image": "nodemon"
         },
+        "/\\.noml$/": {
+            "image": "noml"
+        },
         "/^turbo\\.json$/": {
             "image": "turbo"
         },
