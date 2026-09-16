@@ -1,18 +1,18 @@
 {
     "name": "vscord",
     "displayName": "Discord Rich Presence",
-    "version": "5.3.10",
+    "version": "5.3.11",
     "description": "Highly customizable Discord Rich Presence extension for Visual Studio Code",
     "publisher": "LeonardSSH",
     "license": "MIT",
     "contributors": [
         "xhayper"
     ],
-    "repository": "https://github.com/LeonardSSH/vscord",
+    "repository": "https://github.com/playfairs/vscord",
     "bugs": {
-        "url": "https://github.com/LeonardSSH/vscord/issues"
+        "url": "https://github.com/playfairs/vscord/issues"
     },
-    "homepage": "https://github.com/LeonardSSH/vscord#readme",
+    "homepage": "https://github.com/playfairs/vscord#readme",
     "keywords": [
         "discord",
         "rich",
@@ -43,10 +43,10 @@
     "private": true,
     "icon": "assets/icon.png",
     "scripts": {
-        "vscode:prepublish": "npm run package",
+        "vscode:prepublish": "npm run compile",
         "compile": "rspack",
         "watch": "rspack --watch",
-        "package": "rspack --mode production --devtool hidden-source-map",
+        "package": "npm run compile && npx @vscode/vsce package --allow-star-activation",
         "pretest": "npm run compile"
     },
     "dependencies": {
